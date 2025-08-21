@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration Validator</title>
+</head>
+<body>
+  <h2>Student Registration Form</h2>
+  <form id="regForm" onsubmit="return validateForm()">
+    Name: <input type="text" id="name"><br><br>
+    Email: <input type="email" id="email"><br><br>
+    Age: <input type="number" id="age"><br><br>
+    Password: <input type="password" id="password"><br><br>
+    <button type="submit">Register</button>
+  </form>
+
+  <script>
+    function validateForm() {
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+      let age = document.getElementById("age").value;
+      let password = document.getElementById("password").value;
+
+      if (name === "" || email === "" || age === "" || password === "") {
+        alert("All fields are required!");
+        return false;
+      }
+      if (age < 18) {
+        alert("You must be 18 or older to register.");
+        return false;
+      }
+      if (password.length < 6) {
+        alert("Password must be at least 6 characters long.");
+        return false;
+      }
+      alert("Registration Successful!");
+      return true;
+    }
+  </script>
+</body>
+</html>
